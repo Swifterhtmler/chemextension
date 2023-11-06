@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "Image Popup Extension",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "tabs",
+      "storage"
+    ],
+    "commands": {
+      "openPopup": {
+        "suggested_key": {
+          "default": "Alt+U",
+          "mac": "Command+U"
+        },
+        "description": "Open Popup"
+      }
+    },
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["background.js"]
+      }
+    ],
+    "browser_action": {
+      "default_popup": "Popup.html"
+    }
+  }
+  
